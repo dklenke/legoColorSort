@@ -7,6 +7,7 @@ import lejos.hardware.sensor.EV3TouchSensor;
 import lejos.hardware.sensor.EV3ColorSensor;
 import lejos.hardware.Button;
 import lejos.utility.Delay;
+import lejos.hardware.Sound;
 
 public class ColorSorterMain {
 	public static void main(String[] args) {
@@ -20,9 +21,14 @@ public class ColorSorterMain {
 		Delay.msDelay(1500);
 		motorBand.stop();*/
 		// motorSorter.setSpeed(360);
+		dispenseBlock(motorSorter);
+	}
+	
+	public static void dispenseBlock (EV3LargeRegulatedMotor motorSorter) {
 		motorSorter.resetTachoCount();
+		Sound.beep();
 		motorSorter.rotate(-90);
-		Delay.msDelay(1500);
+		Delay.msDelay(500);
 		motorSorter.rotate(90);
 	}
 }
